@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalAxos_SosaAlejandro.MainPage">
+
+  
+        <Grid Margin="5" RowSpacing="8" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="*" ></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+            <Label Text="{Binding Title}"  Grid.Row="0" 
+    VerticalOptions="CenterAndExpand" FontSize="Title"
+    HorizontalOptions="CenterAndExpand" Margin="0,0,0,5"/>
+
+            <Image Source="{Binding CurrentImage}" HeightRequest="200" Grid.Row="1" 
+     VerticalOptions="CenterAndExpand" 
+     HorizontalOptions="CenterAndExpand"
+     Aspect="AspectFit" Margin="0,0,0,5"/>
+
+            <Button Text="Seleccionar imagen aleatoria" Grid.Row="2" 
+             Command="{Binding ReloadCommand}"
+             VerticalOptions="CenterAndExpand"
+             HorizontalOptions="Center"
+             Margin="10" />
+
+
+
+            <Frame BorderColor="Gray" Grid.Row="3" 
+            CornerRadius="5"
+            HasShadow="False"
+            Padding="0"
+            Margin="0,0,0,5">
+                <CollectionView ItemsSource="{Binding Countries}" SelectionMode="None"  
+                     VerticalScrollBarVisibility="Always"
+                     >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding name.common}" FontSize="Title" />
+                                <Label Text="{Binding name.official}" FontSize="Body" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame>
+        </Grid>
+   
+
+</ContentPage>
